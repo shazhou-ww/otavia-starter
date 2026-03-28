@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Otavia Starter</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f8fafc;
+    }
+
+    .container {
+      text-align: center;
+      padding: 3rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      max-width: 480px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      color: #94a3b8;
+      margin-bottom: 2rem;
+    }
+
+    #message {
+      font-size: 1.25rem;
+      padding: 1rem;
+      background: rgba(56, 189, 248, 0.1);
+      border-radius: 0.5rem;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      min-height: 3.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #message.loading { color: #64748b; }
+    #message.error { color: #f87171; border-color: rgba(248, 113, 113, 0.3); background: rgba(248, 113, 113, 0.1); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Otavia Starter</h1>
+    <p class="subtitle">Cell-based serverless architecture</p>
+    <div id="message" class="loading">Loading...</div>
+  </div>
+
+  <script>
+    const messageEl = document.getElementById("message");
+
+    fetch("/api/hello")
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((data) => {
+        messageEl.textContent = data.message;
+        messageEl.classList.remove("loading");
+      })
+      .catch((err) => {
+        messageEl.textContent = `Failed to connect: ${err.message}`;
+        messageEl.classList.remove("loading");
+        messageEl.classList.add("error");
+      });
+  </script>
+</body>
+</html>

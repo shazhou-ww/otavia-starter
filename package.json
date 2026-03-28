@@ -1,0 +1,17 @@
+{
+  "name": "otavia-starter",
+  "private": true,
+  "workspaces": [
+    "cells/*",
+    "stacks/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "bun run --filter './cells/*' dev",
+    "build": "bun run --filter './cells/*' build",
+    "lint": "bun run --filter './cells/*' lint"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}

@@ -1,0 +1,11 @@
+name: otavia-starter
+
+cloud:
+  provider: aws
+  region: us-east-1
+
+runtime: nodejs20.x
+
+cells:
+  - name: hello
+    path: ../../cells/hello

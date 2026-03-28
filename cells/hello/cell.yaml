@@ -1,0 +1,10 @@
+name: hello
+
+variables:
+  GREETING: "Hello from Otavia!"
+
+backend:
+  dir: backend
+
+frontend:
+  dir: frontend

@@ -1,0 +1,13 @@
+{
+  "name": "@otavia-starter/main-stack",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "deploy": "otavia deploy",
+    "destroy": "otavia destroy",
+    "status": "otavia status"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  }
+}
