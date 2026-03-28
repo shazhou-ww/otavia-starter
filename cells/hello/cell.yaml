@@ -3,8 +3,22 @@ name: hello
 variables:
   GREETING: "Hello from Otavia!"
 
+params: []
+
 backend:
   dir: backend
+  entries:
+    api:
+      entry: app.ts
+      routes:
+        - /api/*
 
 frontend:
   dir: frontend
+  entries:
+    main:
+      entry: index.html
+      routes: ["/*"]
+
+testing:
+  unit: backend/

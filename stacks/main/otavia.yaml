@@ -4,8 +4,11 @@ cloud:
   provider: aws
   region: us-east-1
 
-runtime: nodejs20.x
+deploy:
+  runtime: nodejs20.x
+  timeout: 30
+  memory: 512
 
 cells:
-  - name: hello
-    path: ../../cells/hello
+  hello:
+    package: "@starter/hello"
